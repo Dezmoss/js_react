@@ -23,3 +23,4 @@
 
 'use strict';
 
+const userInput = prompt('Сколько фильмов вы уже посмотрели?', '');
