@@ -23,4 +23,15 @@
 
 'use strict';
 
-const userInput = prompt('Сколько фильмов вы уже посмотрели?', '');
+const userInput = +prompt('Сколько фильмов вы уже посмотрели?', '');
+const personalMovieDB = {
+    count: userInput,
+    movies: {
+
+    },
+    actors: {
+
+    },
+    genres: [],
+    privat: false
+};
