@@ -26,12 +26,15 @@
 const userInput = +prompt('Сколько фильмов вы уже посмотрели?', '');
 const personalMovieDB = {
     count: userInput,
-    movies: {
-
-    },
-    actors: {
-
-    },
+    movies: {},
+    actors: {},
     genres: [],
     privat: false
 };
+
+let lastMovieWatched1 = prompt('Один из последних просмотренных фильмов?', '');
+let movieRate1 = prompt('На сколько оцените его?', '');
+let lastMovieWatched2 = prompt('Один из последних просмотренных фильмов?', '');
+let movieRate2 = prompt('На сколько оцените его?', '');
+personalMovieDB.movies[lastMovieWatched1] = movieRate1;
+personalMovieDB.movies[lastMovieWatched2] = movieRate2;
