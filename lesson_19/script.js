@@ -29,7 +29,7 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    privat: false
+    privat: true
 };
 
 let lastMovieWatched1 = prompt('Один из последних просмотренных фильмов?', '');
