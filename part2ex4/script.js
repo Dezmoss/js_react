@@ -50,11 +50,8 @@ function thirdTask() {
         counter--;
     }
 
-    console.log(result);
 
 
     // Не трогаем
     return result;
 }
-
-thirdTask();
