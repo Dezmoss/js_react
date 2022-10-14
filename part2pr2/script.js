@@ -25,7 +25,22 @@ const personalMovieDB = {
 };
 
 for (let i = 0; i < 2; i++) {
-    let lastMovieWatched = prompt('Один из последних просмотренных фильмов?', '');
-    let movieRate = prompt('На сколько оцените его?', '');
-    personalMovieDB.movies[lastMovieWatched] = movieRate;
+    let a = prompt('Один из последних просмотренных фильмов?', '');
+    let b = prompt('На сколько оцените его?', '');
+    if (a === '' || a.length > 50 || a === null || b === '' || b === null) {
+        i--;
+        continue;
+    } else {
+        personalMovieDB.movies[a] = b;
+    }
+}
+
+if (personalMovieDB.count < 10) {
+    console.log("Просмотрено довольно мало фильмов");
+} else if (personalMovieDB.count < 30) {
+    console.log("Вы классический зритель");
+} else if (personalMovieDB.count >= 30) {
+    console.log("Вы киноман");
+} else {
+    console.log('Произошла ошибка');
 }
