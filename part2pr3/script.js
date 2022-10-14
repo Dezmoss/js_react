@@ -15,7 +15,18 @@ P.S. Функции вызывать не обязательно*/
 
 // Код возьмите из предыдущего домашнего задания
 
-const userInput = +prompt('Сколько фильмов вы уже посмотрели?', '');
+let userInput;
+
+function start() {
+    userInput = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+    while (userInput == '' || userInput == null || isNaN(userInput)) {
+        userInput = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    }
+}
+
+start();
+
 const personalMovieDB = {
     count: userInput,
     movies: {},
