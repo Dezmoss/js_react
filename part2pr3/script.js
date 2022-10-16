@@ -16,6 +16,13 @@ P.S. Функции вызывать не обязательно*/
 // Код возьмите из предыдущего домашнего задания
 
 let userInput;
+const personalMovieDB = {
+    count: userInput,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: true
+};
 
 function start() {
     userInput = +prompt('Сколько фильмов вы уже посмотрели?', '');
@@ -25,33 +32,46 @@ function start() {
     }
 }
 
-start();
-
-const personalMovieDB = {
-    count: userInput,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: true
-};
-
-for (let i = 0; i < 2; i++) {
-    let a = prompt('Один из последних просмотренных фильмов?', '');
-    let b = prompt('На сколько оцените его?', '');
-    if (a === '' || a.length > 50 || a === null || b === '' || b === null) {
-        i--;
-        continue;
-    } else {
-        personalMovieDB.movies[a] = b;
+function showMyDB(hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB);
     }
 }
 
-if (personalMovieDB.count < 10) {
-    console.log("Просмотрено довольно мало фильмов");
-} else if (personalMovieDB.count < 30) {
-    console.log("Вы классический зритель");
-} else if (personalMovieDB.count >= 30) {
-    console.log("Вы киноман");
-} else {
-    console.log('Произошла ошибка');
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] =
+            prompt(`Ваш любимый жанр под номером ${i}`);
+    }
 }
+
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        let a = prompt('Один из последних просмотренных фильмов?', ''),
+            b = prompt('На сколько оцените его?', '');
+
+        if (a === '' || a.length > 50 || a === null || b === '' || b === null) {
+            i--;
+            continue;
+        } else {
+            personalMovieDB.movies[a] = b;
+        }
+    }
+}
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        console.log("Просмотрено довольно мало фильмов");
+    } else if (personalMovieDB.count < 30) {
+        console.log("Вы классический зритель");
+    } else if (personalMovieDB.count >= 30) {
+        console.log("Вы киноман");
+    } else {
+        console.log('Произошла ошибка');
+    }
+}
+
+start();
+rememberMyFilms();
+detectPersonalLevel();
+
