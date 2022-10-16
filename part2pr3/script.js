@@ -47,8 +47,8 @@ function writeYourGenres() {
 
 function rememberMyFilms() {
     for (let i = 0; i < 2; i++) {
-        let a = prompt('Один из последних просмотренных фильмов?', ''),
-            b = prompt('На сколько оцените его?', '');
+        let a = prompt('Один из последних просмотренных фильмов?', '').trim(),
+            b = prompt('На сколько оцените его?', '').trim();
 
         if (a === '' || a.length > 50 || a === null || b === '' || b === null) {
             i--;
