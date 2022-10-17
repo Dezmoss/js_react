@@ -24,3 +24,25 @@ const movieDB = {
     ]
 };
 
+const adv = document.querySelectorAll('.promo__adv img'),
+    movies = document.querySelectorAll('.promo__interactive-item'),
+    movieList = document.querySelector('.promo__interactive-list');
+
+adv.forEach(item => { item.remove(); });
+
+document.querySelector('.promo__genre').textContent = 'ДРАМА';
+
+document.querySelector('.promo__bg').style.cssText =
+    'background-image: url("img/bg.jpg")';
+
+movieDB.movies.sort();
+
+movieList.innerHTML = '';
+
+movieDB.movies.forEach((movie, i) => {
+    movieList.innerHTML += `
+    <li class="promo__interactive-item">${i + 1}. ${movie} 
+        <div class="delete"></div>
+    </li>
+    `;
+});
